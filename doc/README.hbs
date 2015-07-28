@@ -1,0 +1,66 @@
+wary
+----
+
+[![npm version](https://badge.fury.io/js/wary.svg)](http://badge.fury.io/js/wary)
+[![dependencies](https://david-dm.org/jviotti/wary.png)](https://david-dm.org/jviotti/wary.png)
+[![Build Status](https://travis-ci.org/jviotti/wary.svg?branch=master)](https://travis-ci.org/jviotti/wary)
+[![Build status](https://ci.appveyor.com/api/projects/status/1g5c8bh782tnfh2s?svg=true)](https://ci.appveyor.com/project/jviotti/wary)
+
+Tiny unit test framework to test code with real files.
+
+Motivation
+----------
+
+Running tests that interact with real files has usually been a mess. Tipic solutions include mocking the filesystem module, which can reduce the effectiveness of your test code, or use modules that create a virtual filesystem in RAM.
+
+Wary allows you to easily run test cases on real files, allowing you to increase your trust in the code, by taking the required files as inputs and copying them to a temporal location allowing the test to freely modify them, remove them, etc without harming the original file. The temporal files are later removed for you automatically.
+
+Installation
+------------
+
+Install `wary` by running:
+
+```sh
+$ npm install --save wary
+```
+
+Documentation
+-------------
+
+{{#module name="wary"}}
+{{>body~}}
+{{>member-index~}}
+{{>separator~}}
+{{>members~}}
+{{/module}}
+
+Support
+-------
+
+If you're having any problem, please [raise an issue](https://github.com/jviotti/wary/issues/new) on GitHub and I'll be happy to help.
+
+Tests
+-----
+
+Run the test suite by doing:
+
+```sh
+$ gulp test
+```
+
+Contribute
+----------
+
+- Issue Tracker: [github.com/jviotti/wary/issues](https://github.com/jviotti/wary/issues)
+- Source Code: [github.com/jviotti/wary](https://github.com/jviotti/wary)
+
+Before submitting a PR, please make sure that you include tests, and that [coffeelint](http://www.coffeelint.org/) runs without any warning:
+
+```sh
+$ gulp lint
+```
+
+License
+-------
+
+The project is licensed under the MIT license.
