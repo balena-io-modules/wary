@@ -40,7 +40,14 @@ tmp.setGracefulCleanup()
 # 	console.log("The temporal copy is in #{temporalPath}")
 ###
 exports.fromFile = (filePath) ->
-	tmp.fileAsync().spread (temporalPath) ->
+	fs.statAsync(filePath).then (stat) ->
+		return stat.isDirectory()
+
+	.then (isDirectory) ->
+		if isDirectory
+			return tmp.dirAsync()
+		return tmp.fileAsync()
+	.spread (temporalPath) ->
 
 		# Use sync version since async fails on Windows
 		# with EPERM issues for some reason.

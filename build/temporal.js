@@ -47,7 +47,14 @@ tmp.setGracefulCleanup();
  */
 
 exports.fromFile = function(filePath) {
-  return tmp.fileAsync().spread(function(temporalPath) {
+  return fs.statAsync(filePath).then(function(stat) {
+    return stat.isDirectory();
+  }).then(function(isDirectory) {
+    if (isDirectory) {
+      return tmp.dirAsync();
+    }
+    return tmp.fileAsync();
+  }).spread(function(temporalPath) {
     fs.copySync(filePath, temporalPath);
     return temporalPath;
   });
