@@ -26,7 +26,7 @@ var Promise, fs, temporal, utils, _;
 
 Promise = require('bluebird');
 
-fs = Promise.promisifyAll(require('fs-extra'));
+fs = require('fs-extra');
 
 _ = require('lodash');
 

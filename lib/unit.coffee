@@ -23,7 +23,7 @@ THE SOFTWARE.
 ###
 
 Promise = require('bluebird')
-fs = Promise.promisifyAll(require('fs-extra'))
+fs = require('fs-extra')
 _ = require('lodash')
 utils = require('./utils')
 temporal = require('./temporal')
